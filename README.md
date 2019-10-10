@@ -79,8 +79,8 @@ python3 neuron_mutual_regression.py 25 1 4000 1
 
 ### Fit the Poisson-GLM
 
-This step fits Poisson-GLMs  for spike trains.
-In the results directory, it prints the training and testing discrete-time loglikelihood achieved and its continuous-time approximation.
+This step fits a Poisson-GLM for spike trains.
+In the results directory, it prints the training and testing discrete-time loglikelihood achieved and its continuous-time approximation (see the paper cited above).
 It also returns a csv/ neuron that contains the learned parameters.
 
 ```
