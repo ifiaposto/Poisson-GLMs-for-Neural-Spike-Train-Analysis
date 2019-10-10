@@ -14,3 +14,15 @@ This repository provides a Python implementation for analyzing multi-neuronal sp
     A point process framework for relating neural spiking activity to spiking history, neural ensemble, and extrinsic covariate effects. Journal of neurophysiology, 93(2), pp.1074-1089
 
     https://www.ncbi.nlm.nih.gov/pubmed/15356183
+    
+## Setting-up the tutorial
+    1. Clone the repo
+
+    ```
+    git clone https://github.com/ifiaposto/Poisson-GLMs-for-Neural-Spike-Train-Analysis.git
+    ```
+    2. Install the requirements
+    
+    ```
+    pip install -r requirements.txt
+    ```
