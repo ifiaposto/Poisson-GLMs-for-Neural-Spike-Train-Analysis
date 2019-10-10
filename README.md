@@ -48,6 +48,7 @@ python3 neuron_count_data.py 25 1
 This file creates the training and testing files to be used in the regression:
 It finds the last time bin so that a total number of 'nof_spikes' spikes across all neurons has occured up to that time bin (included).
 Subsequently, it finds the next time bin which contains the next 'nof_spikes' spikes (immediately following the spike train used for training).
+The training and testing files per neuron which contain the spike counts up to these time-bins are created.
 
 
 ```
@@ -62,7 +63,7 @@ python3 neuron_data_crop_train_test.py 25 1 4000
 ### Create regression covariates
 This file prepares auxiliary files needed for the poisson regression:
 
-It creates the covariates of the regression by merging the counts of spikes of all neurons that happened 'Q' time bins in the past.
+It creates the covariates of the regression by merging the counts of spikes of all neurons that happened 'Q' time bins in the past, where Q is the degree of regression.
 
 The dependent variable is the spike counts in each time bin.
 
@@ -79,7 +80,7 @@ python3 neuron_mutual_regression.py 25 1 4000 1
 ### Fit the Poisson-GLM
 
 This step fits Poisson-GLMs  for spike trains.
-In the results directory it prints the training and testing discrete-time loglikelihood achieved and its continuous-time approximation.
+In the results directory, it prints the training and testing discrete-time loglikelihood achieved and its continuous-time approximation.
 It also returns a csv/ neuron that contains the learned parameters.
 
 ```
