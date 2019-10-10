@@ -16,13 +16,67 @@ This repository provides a Python implementation for analyzing multi-neuronal sp
     https://www.ncbi.nlm.nih.gov/pubmed/15356183
     
 ## Setting-up the tutorial
-    1. Clone the repo
+1. Clone the repo
 
     ```
     git clone https://github.com/ifiaposto/Poisson-GLMs-for-Neural-Spike-Train-Analysis.git
     ```
-    2. Install the requirements
+ 2. Install the requirements
     
     ```
     pip install -r requirements.txt
     ```
+## Running the tutorial
+
+### Discretization of the neuronal data
+
+
+```
+python3 neuron_count_data.py <nof neurons> <time bin size>
+```
+Example:
+    
+```
+python3 neuron_count_data.py 25 1
+```
+
+### Create the training and testing dataset
+
+
+
+```
+python3 neuron_count_data.py <nof neurons> <time bin size> <nof_spikes>
+```
+Example:
+    
+```
+python3 neuron_data_crop_train_test.py 25 1 4000
+```
+
+### Create regression covariates
+
+
+```
+python3 neuron_count_data.py <nof neurons> <time bin size> <nof_spikes> <degree of regression>
+```
+Example:
+    
+```
+python3 neuron_mutual_regression.py 25 1 4000 1
+```
+
+### Fit the Poisson-GLM
+
+```
+python3 fit_spike_trains_mutual_regression.py <nof neurons> <time bin size> <nof_spikes> <degree of regression>
+```
+Example:
+    
+```
+python3 fit_spike_trains_mutual_regression.py 25 1 4000 1
+```
+
+
+
+
+
