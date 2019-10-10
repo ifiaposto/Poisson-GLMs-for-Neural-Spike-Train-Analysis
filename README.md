@@ -30,6 +30,9 @@ This repository provides a Python implementation for analyzing multi-neuronal sp
 
 ### Discretization of the neuronal data
 
+This step discretizes the spike trains of the neurons:
+It counts the number of spikes that occured in each time bin of the discretized time interval.
+
 
 ```
 python3 neuron_count_data.py <nof neurons> <time bin size>
@@ -42,6 +45,9 @@ python3 neuron_count_data.py 25 1
 
 ### Create the training and testing dataset
 
+This file creates the training and testing files to be used in the regression:
+It finds the last time bin so that a total number of 'nof_spikes' spikes across all neurons has occured up to that time bin (included).
+Subsequently, it finds the next time bin which contains the next 'nof_spikes' spikes (immediately following the spike train used for training).
 
 
 ```
@@ -54,6 +60,11 @@ python3 neuron_data_crop_train_test.py 25 1 4000
 ```
 
 ### Create regression covariates
+This file prepares auxiliary files needed for the poisson regression:
+
+It creates the covariates of the regression by merging the counts of spikes of all neurons that happened 'Q' time bins in the past.
+
+he dependent variable is the spike counts in each time bin.
 
 
 ```
@@ -66,6 +77,10 @@ python3 neuron_mutual_regression.py 25 1 4000 1
 ```
 
 ### Fit the Poisson-GLM
+
+This step fits Poisson-GLMs  for spike trains.
+In the results directory it prints the training and testing discrete-time loglikelihood achieved and its continuous-time approximation.
+It also returns a csv/ neuron that contains the learned parameters.
 
 ```
 python3 fit_spike_trains_mutual_regression.py <nof neurons> <time bin size> <nof_spikes> <degree of regression>
