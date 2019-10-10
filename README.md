@@ -64,7 +64,7 @@ This file prepares auxiliary files needed for the poisson regression:
 
 It creates the covariates of the regression by merging the counts of spikes of all neurons that happened 'Q' time bins in the past.
 
-he dependent variable is the spike counts in each time bin.
+The dependent variable is the spike counts in each time bin.
 
 
 ```
